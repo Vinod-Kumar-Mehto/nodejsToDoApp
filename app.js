@@ -3,7 +3,7 @@ import userRouter from "./Routes/user.js";
 import * as dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import taskRouter from "./Routes/task.js";
-import ErrorHandler from "./Middlewares/error.js";
+import { errMiddleWare } from "./Middlewares/error.js";
 import cors from "cors";
 export const app = express();
 dotenv.config({
@@ -22,4 +22,4 @@ app.use(
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-app.use(new ErrorHandler());
+app.use(errMiddleWare);
