@@ -6,8 +6,8 @@ export const connectData = () => {
       dbName: "Database",
       useNewUrlParser: true,
     })
-    .then(() => {
-      console.log("Database connected");
+    .then((c) => {
+      console.log(`Database connected ${c.connection.host}`);
     })
     .catch((e) => {
       console.log(e);
