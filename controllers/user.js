@@ -1,6 +1,7 @@
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 import { sendCookie } from "../Utils/feature.js";
+import ErrorHandler from "../Middlewares/error.js";
 
 export const register = async (req, res, next) => {
   try {
