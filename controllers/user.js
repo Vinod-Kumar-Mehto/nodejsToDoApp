@@ -11,7 +11,7 @@ export const register = async (req, res, next) => {
 
     const hashedPass = await bcrypt.hash(password, 10);
     user = await User.create({ name, email, password: hashedPass });
-    sendCookie(user, res, "registered sucessfull", 201);
+    sendCookie(user, res, "Registered sucessfully", 201);
   } catch (error) {
     next(error);
   }
@@ -29,7 +29,7 @@ export const login = async (req, res, next) => {
     if (!isMatch)
       return next(new ErrorHandler("Invalid email or password", 400));
 
-    sendCookie(user, res, `welcome back${user.name}`, 200);
+    sendCookie(user, res, `Welcome back ${user.name}`, 200);
   } catch (error) {
     next(error);
   }
