@@ -16,3 +16,4 @@ export const errMiddleWare = (err, req, res, next) => {
 };
 
 export default ErrorHandler;
+  

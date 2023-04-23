@@ -2,7 +2,7 @@ import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 import { sendCookie } from "../Utils/feature.js";
 
-export const register = async (req, res) => {
+export const register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     let user = await User.findOne({ email });
@@ -16,7 +16,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -33,7 +33,7 @@ export const login = async (req, res) => {
     next(error);
   }
 };
-export const getUserDetails = (req, res) => {
+export const getUserDetails = (req, res, next) => {
   try {
     const user = req.user;
 
@@ -46,7 +46,7 @@ export const getUserDetails = (req, res) => {
   }
 };
 
-export const logout = async (req, res) => {
+export const logout = async (req, res, next) => {
   try {
     res
       .status(200)
