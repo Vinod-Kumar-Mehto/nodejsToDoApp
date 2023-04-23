@@ -16,7 +16,7 @@ export const newTask = async (req, res, next) => {
   }
 };
 
-export const getMyTask = async (req, res) => {
+export const getMyTask = async (req, res, next) => {
   try {
     const { _id } = req.user;
     const task = await Task.find({ user: _id });
